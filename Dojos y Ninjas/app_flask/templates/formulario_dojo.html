@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Dojos </title>
+        <link rel="stylesheet" href={{url_for('static', filename='/css/styles.css')}}>
+    </head>
+    <body>
+        <main>
+            <section class="formulario">
+                <h1> Nuevo Dojo </h1>
+                <form method="POST" action="/nuevo/dojo">
+                    <div>
+                        <label for="nombre">
+                            Nombre del dojo:
+                        </label>
+                        <input id="nombre" name="nombre" type="text">
+                    </div>
+                    <button>
+                        Agregar
+                    </button>
+                </form>
+            </section>
+            <section>
+                <div class="lista_dojos">
+                    {% for dojo in lista_dojos: %}
+                    <div>
+                        <a href="/dojos/{{dojo.id}}"> {{dojo.nombre}} </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="/formulario/ninja"> Agregar ninja </a> 
+            </section>
+        </main>
+    </body>
+</html>

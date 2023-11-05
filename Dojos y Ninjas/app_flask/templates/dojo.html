@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Dojo </title>
+        <link rel="stylesheet" href={{url_for('static', filename='/css/styles.css')}}>
+    </head>
+    <body>
+        <h1> Detalle del dojo de {{dojo.nombre}} </h1>
+        {% if hay_ninjas == True: %}
+            <table>
+                <thead>
+                    <tr>
+                        <th> Nombre </th>
+                        <th> Apellido </th>
+                        <th> Edad </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in dojo.ninjas: %}
+                    <tr>
+                        <td> {{ninja.nombre}} </td>
+                        <td> {{ninja.apellido}} </td>
+                        <td> {{ninja.edad}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else: %}
+            <h3> Este dojo aún no tiene ninjas </h3>
+        {% endif %}
+        <a href="/dojos"> Dojos </a>
+    </body>
+</html>
